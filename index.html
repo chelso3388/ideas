@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="js/jquery-3.4.1.js">
+  	</script>
+  	<script src="js/scripts.js">
+  	</script>
+    <title>Ice Cream</title>
+  </head>
+  <body>
+    <p id="creams"></p>
+  </body>
+  </html>
+
+
+
+
+
+
+
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+  <title>User Input, Sort and Find!</title>
+
+  <style>
+
+  </style>
+  </head>
+
+  <body>
+  <h2>Enter 4 numbers user!</h2>
+  <p id="myprint"></p>
+
+  <button onclick="userInput()">Input your Numbers!</button>
+  <button onclick="searchInput()">Find an inputed number in your array!       </button>
+  <script>
+  var numbers = [];
+
+  function userInput() {
+  for(var i = 0; i < 4; i++){
+     var num = prompt("Enter a number 1 at a time, from 1-9 until prompts ask you 4 times:");
+     if (isNaN(num)) {
+       alert("Enter a number!");
+      --i; // reset the counter for amount of numbers entered
+     }
+     if( !isNaN(num)) {
+        if( num % 1 != 0){
+           alert("Enter a whole number!")
+           --i;  // reset the counter for amount of numbers entered
+        }else{
+           numbers.push(num);
+        }
+     }
+  }
+
+
+
+
+
+
+
+
+  <ul id="shipping_method">
+    <li>
+      <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_1" value="booster_custom_shipping_1" class="shipping_method" checked="checked">
+      <label for="shipping_method_custom_shipping_1">Custom 1:</label>
+    </li>
+    <li>
+      <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_2" value="booster_custom_shipping_2" class="shipping_method">
+      <label for="shipping_method_custom_shipping_2">Custom 2:</label>
+    </li>
+    <li>
+      <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_3" value="FedEx - FedEx Ground" class="shipping_method">
+      <label for="shipping_method_fedex_ground">FedEx Ground:</label>
+    </li>
+    <li>
+      <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_4" value="UPS - UPS Ground" class="shipping_method">
+      <label for="shipping_method_ups-ground">UPS Ground:</label>
+    </li>
+  </ul>
+
+
+
+
+  var ordering = {
+  "FedEx - FedEx Ground":      1,
+  "UPS - UPS Ground":          2,
+  "booster_custom_shipping_1": 3,
+  "booster_custom_shipping_2": 4
+};
+
+$('#shipping_method > li').
+  sort(
+    function(a, b) {
+      // for each <li>, get the value of the <input> it contains
+      // look up that value in `ordering`, and use that for comparison
+      //
+      return ordering[ $('input', a).val() ] - ordering[ $('input', b).val() ];
+    }
+  ).
+  each(
+    // appending each element in sorted order leaves a sorted list behind
+    //
+    function() {
+      $('#shipping_method').append(this);
+    }
+  );
+
+
+
+
+
+  <ul class="friend_list">
+    <li>
+        <a href="#">Krishna</a>
+        <a href="#">Karan</a>
+        <a href="#">Ram</a>
+        <a href="#">Hari</a>
+    </li>
+</ul>
+
+<input type="text" name="sort" value="Search" id="sort">
+
+
+
+$("#sort").keyup(function(){
+      var v = $(this).val();
+      if(v.length==0)
+      {    $("a").show();}
+      else
+      {
+      $("a").each(function(){
+          if($(this).text().indexOf(v)==0)
+              $(this).show();
+          else
+              $(this).hide();
+      })
+      }
+  }) ;
+
+
+
+
+
+  <input type="text" name="name1" id="1" value="1" class="order">
+<input type="text" name="name2" id="2" value="2" class="order">
+<input type="text" name="name3" id="3" value="3" class="order">
+<input type="text" name="name4" id="4" value="4" class="order">
